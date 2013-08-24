@@ -2,16 +2,52 @@
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <title>Hanoi Tower</title>
-  <meta name="author" content="Joao Stein">
+    <title>Hanoi Tower</title>
+    <meta name="author" content="Joao Stein">
+    <link rel="stylesheet" href="hanoi.css">
 
 </head>
 
 <body>
+    <div class="main">
+        <h1>Hanoi Tower</h1>
 
-  <script src="lib/three.js"></script>
-  <script src="src/Hanoi.js"></script>
+        <form>
+            <label>Number of Disks</label>
+            <select>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+            </select>
+
+            <button>Start</button>
+        </form>
+
+        <div class="hanoi-wrapper cf">
+            <div class="first-rod rod">
+                <h2>Rod 1</h2>
+                <p>[1, 2, 3]</p>
+            </div>
+
+            <div class="second-rod rod">
+                <h2>Rod 2</h2>
+                <p>[]</p>
+            </div>
+            
+            <div class="third-rod rod">
+                <h2>Rod 3</h2>
+                <p>[]</p>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="lib/three.js"></script>
+    <script src="src/Hanoi.js"></script>
 </body>
 </html>

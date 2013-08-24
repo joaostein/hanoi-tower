@@ -1,0 +1,35 @@
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.hanoi-wrapper {
+    display: inline-block;
+    min-width: 200px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.main {
+    width: 1020px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.rod {
+    float: left;
+    margin-right: 40px;
+}
+
+.rod p {
+    font-size: 24px;
+}
+
+.rod:last-child {
+    margin-right: 0;
+}
