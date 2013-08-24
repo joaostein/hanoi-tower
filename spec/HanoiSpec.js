@@ -1,8 +1,9 @@
-describe('Hanoi Tower', function () {
 
-    beforeEach(function () {
-        hanoi = new Hanoi(3);
-    });
+beforeEach(function () {
+    hanoi = new Hanoi(3);
+});
+
+describe('Hanoi Tower', function () {
 
     it('starts with three rods', function () {
         expect(hanoi.rods.length).toBe(3);
@@ -26,10 +27,6 @@ describe('Hanoi Tower', function () {
 
 
 describe('Rods', function () {
-    
-    beforeEach(function () {
-        hanoi = new Hanoi(3);
-    });
 
     it('should be able to have disks', function () {
         var rod = [1, 2, 3];
