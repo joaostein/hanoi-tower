@@ -1,9 +1,10 @@
-
-beforeEach(function () {
-    hanoi = new Hanoi(3);
-});
-
 describe('Hanoi Tower', function () {
+
+    beforeEach(function () {
+        hanoi = new Hanoi(3);
+        hanoi.init();
+    });
+
 
     it('starts with three rods', function () {
         expect(hanoi.rods.length).toBe(3);
@@ -14,11 +15,13 @@ describe('Hanoi Tower', function () {
     });
 
     it('starts with N disks', function () {
-        hanoi = new Hanoi(4);
+        var hanoi = new Hanoi(4);
+        hanoi.init();
         expect(hanoi.disks).toBe(4);
         expect(hanoi.rods).toEqual([[1, 2, 3, 4], [], []]);
 
-        hanoi_1 = new Hanoi(10);
+        var hanoi_1 = new Hanoi(10);
+        hanoi_1.init();
         expect(hanoi_1.disks).toBe(10);
         expect(hanoi_1.rods).toEqual([[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [], []]);
     });
@@ -27,6 +30,11 @@ describe('Hanoi Tower', function () {
 
 
 describe('Rods', function () {
+
+    beforeEach(function () {
+        hanoi = new Hanoi(3);
+        hanoi.init();
+    });
 
     it('should be able to have disks', function () {
         var rod = [1, 2, 3];
@@ -86,7 +94,12 @@ describe('Rods', function () {
 
     });
 
+describe("Hanoi View Gameplay", function () {
 
+
+
+
+});
 
 
 

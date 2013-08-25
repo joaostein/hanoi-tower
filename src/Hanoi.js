@@ -1,12 +1,13 @@
 var Hanoi = function (disks) {
     
-    this.rods = [[], [], []];
-    this.disks = disks;
+    this.init = function () {
+        this.rods = [[], [], []];
+        this.disks = disks;
 
-    for (var i = disks; i > 0; i--) {
-        this.rods[0].unshift(i);
+        for (var i = disks; i > 0; i--) {
+            this.rods[0].unshift(i);
+        }
     }
-
 
     this.move = function (origin, destination) {
         var origin = origin - 1;
