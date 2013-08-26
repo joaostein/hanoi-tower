@@ -9,14 +9,17 @@ var Hanoi = function (disks) {
         }
     }
 
-    this.move = function (origin, destination) {
-        var origin = origin - 1;
-            destination = destination - 1;
+    this.move = function (from, to) {
+        var from = from - 1;
+            to = to - 1;
 
-        if (this.rods[origin][0] < this.rods[destination][0] || this.rods[destination][0] == undefined) {
-            var disk = this.rods[origin].shift();
-            this.rods[destination].unshift(disk);
+        if (this.rods[from][0] < this.rods[to][0] || this.rods[to][0] == undefined) {
+            var disk = this.rods[from].shift();
+            this.rods[to].unshift(disk);
+            
+            this.updateViewRods();
         }
+
     }
 
     this.autoPlay = function () {
@@ -29,4 +32,16 @@ var Hanoi = function (disks) {
         this.move(fromRod, toRod);
         this.executeAllMoviments(numberDisks - 1, tempRod, fromRod, toRod);
     }
+
+    this.updateViewRods = function () {
+        for (var i = 0, len = hanoi.rods.length; i < len; i++) {
+            if (hanoi.rods[i].length != 0) {
+                for (var j = 0, len = hanoi.rods[i].length; j < len; j++) {
+                    var p = document.querySelectorAll('.rod' + (i + 1))[0];
+                    p.appendChild(document.createTextNode(hanoi.rods[i][j] + ' '));
+                }
+            }
+        }
+    }
+
 }

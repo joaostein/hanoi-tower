@@ -31,9 +31,19 @@ describe('Hanoi Tower', function () {
 
 describe('Rods', function () {
 
-    beforeEach(function () {
+    beforeEach(function() {
+        rod1 = $('<div class="rod1"></div>').appendTo('body');
+        rod2 = $('<div class="rod2"></div>').appendTo('body');
+        rod3 = $('<div class="rod3"></div>').appendTo('body');
+
         hanoi = new Hanoi(3);
         hanoi.init();
+    });
+
+    afterEach(function () {
+        $('.rod1').remove();
+        $('.rod2').remove();
+        $('.rod3').remove();
     });
 
     it('should be able to have disks', function () {
@@ -96,23 +106,40 @@ describe('Rods', function () {
 });
 
 describe('Hanoi View Gameplay', function () {
+    
+    beforeEach(function() {
+        rod1 = $('<div class="rod1"></div>').appendTo('body');
+        rod2 = $('<div class="rod2"></div>').appendTo('body');
+        rod3 = $('<div class="rod3"></div>').appendTo('body');
+
+        hanoi = new Hanoi(3);
+        hanoi.init();
+    });
+
+    afterEach(function () {
+        $('.rod1').remove();
+        $('.rod2').remove();
+        $('.rod3').remove();
+    });
+
     it('should auto-play', function () {
         hanoi.autoPlay();
         expect(hanoi.rods[0]).toEqual([]);
         expect(hanoi.rods[1]).toEqual([]);
         expect(hanoi.rods[2]).toEqual([1, 2, 3]);
     });
+
+    xit('should update view on each movement', function () {
+        hanoi.move(1, 3);
+        expect(rod1.text()).toBe('2 3 ');
+        expect(rod2.text()).toBe('');
+        expect(rod3.text()).toBe('1 ');
+        // hanoi.move(1, 2);
+        // expect(hanoi.rods[0]).toEqual([2, 3]);
+        // expect(hanoi.rods[1]).toEqual([1]);
+        // expect(hanoi.rods[2]).toEqual([]);
+    });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
