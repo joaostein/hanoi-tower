@@ -1,9 +1,9 @@
 var Hanoi = function (disks) {
     
+    this.disks = disks;
+    this.rods = [[], [], []];
+    
     this.init = function () {
-        this.rods = [[], [], []];
-        this.disks = disks;
-
         for (var i = disks; i > 0; i--) {
             this.rods[0].unshift(i);
         }
@@ -17,7 +17,16 @@ var Hanoi = function (disks) {
             var disk = this.rods[origin].shift();
             this.rods[destination].unshift(disk);
         }
-
     }
 
+    this.autoPlay = function () {
+        this.executeAllMoviments(this.disks, 1, 2, 3);
+    }
+
+    this.executeAllMoviments = function (numberDisks, fromRod, tempRod, toRod) {
+        if (numberDisks === 0) return;
+        this.executeAllMoviments(numberDisks - 1, fromRod, toRod, tempRod);
+        this.move(fromRod, toRod);
+        this.executeAllMoviments(numberDisks - 1, tempRod, fromRod, toRod);
+    }
 }

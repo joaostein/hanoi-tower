@@ -93,12 +93,15 @@ describe('Rods', function () {
         expect(hanoi.rods[2]).toEqual([]);
 
     });
+});
 
-describe("Hanoi View Gameplay", function () {
-
-
-
-
+describe('Hanoi View Gameplay', function () {
+    it('should auto-play', function () {
+        hanoi.autoPlay();
+        expect(hanoi.rods[0]).toEqual([]);
+        expect(hanoi.rods[1]).toEqual([]);
+        expect(hanoi.rods[2]).toEqual([1, 2, 3]);
+    });
 });
 
 
@@ -135,4 +138,3 @@ describe("Hanoi View Gameplay", function () {
 
 
 
-});
