@@ -43,21 +43,4 @@ var Hanoi = function (disks) {
             rod.appendChild(document.createTextNode(hanoi.rods[position][i] + ' '));
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

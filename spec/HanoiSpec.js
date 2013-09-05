@@ -1,19 +1,20 @@
+
+beforeEach(function () {
+    rod1 = $('<div class="rod1"></div>').appendTo('body');
+    rod2 = $('<div class="rod2"></div>').appendTo('body');
+    rod3 = $('<div class="rod3"></div>').appendTo('body');
+
+    hanoi = new Hanoi(3);
+    hanoi.init();
+});
+
+afterEach(function () {
+    $('.rod1').remove();
+    $('.rod2').remove();
+    $('.rod3').remove();
+});
+
 describe('Hanoi Tower', function () {
-
-    beforeEach(function () {
-        rod1 = $('<div class="rod1"></div>').appendTo('body');
-        rod2 = $('<div class="rod2"></div>').appendTo('body');
-        rod3 = $('<div class="rod3"></div>').appendTo('body');
-
-        hanoi = new Hanoi(3);
-        hanoi.init();
-    });
-
-    afterEach(function () {
-        $('.rod1').remove();
-        $('.rod2').remove();
-        $('.rod3').remove();
-    });
 
     it('starts with three rods', function () {
         expect(hanoi.rods.length).toBe(3);
@@ -39,21 +40,6 @@ describe('Hanoi Tower', function () {
 
 
 describe('Rods', function () {
-
-    beforeEach(function() {
-        rod1 = $('<div class="rod1"></div>').appendTo('body');
-        rod2 = $('<div class="rod2"></div>').appendTo('body');
-        rod3 = $('<div class="rod3"></div>').appendTo('body');
-
-        hanoi = new Hanoi(3);
-        hanoi.init();
-    });
-
-    afterEach(function () {
-        $('.rod1').remove();
-        $('.rod2').remove();
-        $('.rod3').remove();
-    });
 
     it('should be able to have disks', function () {
         var rod = [1, 2, 3];
@@ -115,21 +101,6 @@ describe('Rods', function () {
 });
 
 describe('Hanoi View Gameplay', function () {
-    
-    beforeEach(function() {
-        rod1 = $('<div class="rod1"></div>').appendTo('body');
-        rod2 = $('<div class="rod2"></div>').appendTo('body');
-        rod3 = $('<div class="rod3"></div>').appendTo('body');
-
-        hanoi = new Hanoi(3);
-        hanoi.init();
-    });
-
-    afterEach(function () {
-        $('.rod1').remove();
-        $('.rod2').remove();
-        $('.rod3').remove();
-    });
 
     it('should render all disks when starts', function () {
         expect(hanoi.rods[0]).toEqual([1, 2, 3]);
