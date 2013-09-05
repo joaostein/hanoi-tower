@@ -7,6 +7,8 @@ var Hanoi = function (disks) {
         for (var i = disks; i > 0; i--) {
             this.rods[0].unshift(i);
         }
+
+        this.updateRodText(0);
     }
 
     this.move = function (from, to) {
@@ -17,9 +19,9 @@ var Hanoi = function (disks) {
             var disk = this.rods[from].shift();
             this.rods[to].unshift(disk);
             
-            // this.updateViewRods();
+            this.updateRodText(from);
+            this.updateRodText(to);
         }
-
     }
 
     this.autoPlay = function () {
@@ -33,15 +35,29 @@ var Hanoi = function (disks) {
         this.executeAllMoviments(numberDisks - 1, tempRod, fromRod, toRod);
     }
 
-    // this.updateViewRods = function () {
-    //     for (var i = 0, len = hanoi.rods.length; i < len; i++) {
-    //         if (hanoi.rods[i].length != 0) {
-    //             for (var j = 0, len = hanoi.rods[i].length; j < len; j++) {
-    //                 var p = document.querySelectorAll('.rod' + (i + 1))[0];
-    //                 p.appendChild(document.createTextNode(hanoi.rods[i][j] + ' '));
-    //             }
-    //         }
-    //     }
-    // }
+    this.updateRodText = function (position) {
+        var rod = document.querySelectorAll('.rod' + (position + 1))[0];
+        rod.innerHTML = '';
+
+        for (var i = 0, disksLength = hanoi.rods[position].length; i < disksLength; i++) {
+            rod.appendChild(document.createTextNode(hanoi.rods[position][i] + ' '));
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
