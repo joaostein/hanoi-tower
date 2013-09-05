@@ -16,12 +16,12 @@
 
         <form>
             <label>Number of Disks</label>
-            <select>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
+            <select id="total-disks">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
             </select>
 
             <button id="start-hanoi">Start</button>
@@ -51,5 +51,17 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="lib/three.js"></script>
     <script src="src/Hanoi.js"></script>
+    <script>
+        var button = document.getElementById('start-hanoi'),
+            totalDisksElement = document.getElementById('total-disks');
+
+        button.onclick = function (e) {
+            var totalDisks = totalDisksElement.options[totalDisksElement.selectedIndex].value;
+            hanoi = new Hanoi(totalDisks);
+            hanoi.init();
+            e.preventDefault();
+        }
+
+    </script>
 </body>
 </html>
