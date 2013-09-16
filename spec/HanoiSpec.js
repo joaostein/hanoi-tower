@@ -104,7 +104,7 @@ describe('Hanoi View Gameplay', function () {
 
     it('should render all disks when starts', function () {
         expect(hanoi.rods[0]).toEqual([1, 2, 3]);
-        expect(rod1.text()).toBe('1 2 3 ');
+        expect(rod1.text()).toBe('123');
     });
 
     it('should auto-play', function () {
@@ -115,21 +115,21 @@ describe('Hanoi View Gameplay', function () {
     });
 
     it('should update view on each movement', function () {
+        
         hanoi.move(1, 3);
-        expect(rod1.text()).toBe('2 3 ');
-        expect(rod2.text()).toBe('');
-        expect(rod3.text()).toBe('1 ');
+        expect($('.rod1').text()).toBe('23');
+        expect($('.rod2').text()).toBe('');
+        expect($('.rod3').text()).toBe('1');
 
         hanoi.move(1, 2);
-        expect(rod1.text()).toBe('3 ');
-        expect(rod2.text()).toBe('2 ');
-        expect(rod3.text()).toBe('1 ');
+        expect($('.rod1').text()).toBe('3');
+        expect($('.rod2').text()).toBe('2');
+        expect($('.rod3').text()).toBe('1');
 
         hanoi.move(3, 2);
-        expect(rod1.text()).toBe('3 ');
-        expect(rod2.text()).toBe('1 2 ');
-        expect(rod3.text()).toBe('');
-
+        expect($('.rod1').text()).toBe('3');
+        expect($('.rod2').text()).toBe('12');
+        expect($('.rod3').text()).toBe('');
     });
 });
 
